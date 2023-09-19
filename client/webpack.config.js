@@ -26,7 +26,6 @@ module.exports = () => {
         swSrc: './src-sw.js', // Path to your service worker file
         exclude: [/\.map$/, /manifest\.json$/], // Exclude specific files
       }),
-      
       // Configure the WebpackPwaManifest plugin
       new WebpackPwaManifest({
         name: 'Jace Text Editor',
