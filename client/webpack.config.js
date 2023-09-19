@@ -17,23 +17,8 @@ module.exports = () => {
     plugins: [
       // Generate HTML files
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './index.html',
         chunks: ['main'], // Include the 'main' bundle in this HTML file
-      }),
-      
-      // Configure the WebpackPwaManifest plugin
-      new WebpackPwaManifest({
-        name: 'Your PWA Name',
-        short_name: 'PWA Short Name',
-        description: 'Your PWA Description',
-        background_color: '#ffffff',
-        theme_color: '#31a9e1',
-        icons: [
-          {
-            src: path.resolve('src/images/icon.png'),
-            sizes: [96, 128, 192, 256, 384, 512],
-          },
-        ],
       }),
       
       // Configure the InjectManifest plugin for service workers
@@ -41,6 +26,25 @@ module.exports = () => {
         swSrc: './src-sw.js', // Path to your service worker file
         exclude: [/\.map$/, /manifest\.json$/], // Exclude specific files
       }),
+      
+      // Configure the WebpackPwaManifest plugin
+      new WebpackPwaManifest({
+        name: 'Jace Text Editor',
+        short_name: 'Jace',
+        description: 'The Only Text Editor you need',
+        background_color: '#ffffff',
+        theme_color: '#31a9e1',
+        start_url: './',
+        publicPath: './',
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          },
+        ],
+      }),
+      
     ],
 
     module: {
@@ -57,6 +61,7 @@ module.exports = () => {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],
+              plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/transform-runtime'],
             },
           },
         },
