@@ -29,9 +29,9 @@ module.exports = () => {
       }),
       // Configure the WebpackPwaManifest plugin
       new WebpackPwaManifest({
-        name: 'Jace Text Editor',
-        short_name: 'Jace',
-        description: 'The Only Text Editor you need',
+        name: 'Just Another Text Editor',
+        short_name: 'JATE',
+        description: 'The ONLY Text Editor you need',
         background_color: '#ffffff',
         theme_color: '#31a9e1',
         start_url: './',
