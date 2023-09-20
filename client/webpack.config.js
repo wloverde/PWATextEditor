@@ -24,6 +24,7 @@ module.exports = () => {
       // Configure the InjectManifest plugin for service workers
       new InjectManifest({
         swSrc: './src-sw.js', // Path to your service worker file
+        swDest: 'src-sw.js', // Output path for generated sw.js file
         exclude: [/\.map$/, /manifest\.json$/], // Exclude specific files
       }),
       // Configure the WebpackPwaManifest plugin
